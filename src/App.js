@@ -27,6 +27,7 @@ export default class App extends Component<{}> {
     super(props);
 
     this.renderCard = this.renderCard.bind(this);
+    this.renderNoMoreCards = this.renderNoMoreCards.bind(this);
   }
 
   renderCard(item) {
@@ -48,12 +49,31 @@ export default class App extends Component<{}> {
     );
   }
 
+  renderNoMoreCards() {
+    return (
+      <Card
+        title="Finish!"
+      >
+        <Text
+          style={{ marginBottom: 10 }}
+        >
+          No more Elements
+        </Text>
+        <Button
+          backgroundColor="#03A9F4"
+          title="Check More!"
+        />
+      </Card>
+    );
+  }
+
   render() {
     return (
       <View style={styles.container} >
         <Deck
           data={DATA}
           renderCard={this.renderCard}
+          renderNoMoreCards={this.renderNoMoreCards}
         />
       </View>
     );
